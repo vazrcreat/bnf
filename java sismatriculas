@@ -1,0 +1,740 @@
+
+
+import java.util.Scanner;
+
+/**
+ *
+ * 
+ */
+public class OrdenListaS {
+    
+
+
+    /**
+     * @param args the command line arguments
+     */
+    public static void main(String[] args) {
+        // TODO code application logic here
+        Menu();
+    }     //
+       static String c0="Informatica General";
+       static String c1="Programacion";
+       static String c2="Algoritmos";
+       static String c3="Profesores";
+      
+       
+       
+    public static void Menu() {
+        String opcion;
+        Scanner teclado = new Scanner(System.in); //Creación de un objeto Scanner
+        TadListaSimple Cat  = new TadListaSimple(); //InformaticaGeneral
+        TadListaSimple Cat1 = new TadListaSimple();//Programacion
+        TadListaSimple Cat2  = new TadListaSimple();//Algoritmos
+        TadListaSimple Cat3  = new TadListaSimple();//Profesores
+   
+        
+        String[] A = new String[10];
+      
+        
+         
+        TadListaSimple tmpLista = new TadListaSimple();//alnacena todos los alumnos
+        TadListaSimple tmpLista2 = new TadListaSimple();//Almacena todas las asignaturas
+        
+        TipoInfo Dato = new TipoInfo();
+        String tmpCadena;
+        int tmpNumero=0;
+        
+        boolean b=true;//Sirve para salir del submenu del Caso1
+        boolean e;// sirve para verificar si existe el termino
+
+       
+            
+                                 
+        
+        do {
+            agregarLineas(2);
+            System.out.println("     ------------Bienvenido------------- \n-------------Matricula  covid -19------------");
+            System.out.println("1. Registrar Profesor ");
+            System.out.println("2. Matricular  Nuevo Estudiante ");
+            System.out.println("3. Ver datos Almacenados ");
+            System.out.println("4. Estadistica de estudiantes matriculados Por Asignatura  ");
+            System.out.println("s. Salir");
+            System.out.println("-----------------------------------------");
+            System.out.print("INGRESE LA OPCION [1 - 5]: ");
+            opcion = teclado.next();
+            opcion = opcion.toLowerCase();
+            switch (opcion) {
+                case "1": 
+                 Dato=PideDatosprofesor(3);
+                 e=Cat3.ExisteTermino( Dato.getTermino());
+                 if(e==false){ 
+                     Cat3.InsertarFinal(Dato);
+                     b=false;
+                 }
+                    pausa();
+                    break;
+                
+                
+                case "2": 
+                       do{
+             agregarLineas(2);
+            System.out.println("-----asignatura ------");
+            System.out.println("1.Informatica General");
+            System.out.println("2. Programacion");
+            System.out.println("3. Algoritmos ");
+            System.out.println("s. Salir");
+            System.out.print("INGRESE LA OPCION [1 - 5]: ");
+            Scanner teclado1 = new Scanner(System.in);
+            opcion = teclado1.next();
+            opcion = opcion.toLowerCase();
+            switch (opcion) {
+                case "1":
+                    agregarLineas(2);
+            System.out.println("-----Secciones disponibles------");
+            System.out.println("1.1000");
+            System.out.println("2.1100");
+            System.out.print("INGRESE LA OPCION [1 - 2]: ");
+            System.out.println("s. Salir");
+            Scanner teclado16 = new Scanner(System.in);
+            opcion = teclado16.next();
+            opcion = opcion.toLowerCase();
+                   Dato=PideDatos(1);
+                      e=Cat.ExisteTermino( Dato.getTermino());
+                 if(e==false){ 
+                     Cat.InsertarFinal(Dato);
+                     b=false;
+                 }
+                    System.out.println("Alumno matriculado con exito");
+                    pausa();
+                    break;
+                     
+                   
+                case "2":
+                       System.out.println("-----Secciones disponibles------");
+            System.out.println("1.1200");
+            System.out.println("2.1300");
+            System.out.print("INGRESE LA OPCION [1 - 2]: ");
+            System.out.println("s. Salir");
+            opcion = teclado1.next();
+            opcion = opcion.toLowerCase();
+                    Dato=PideDatos(1);
+                      e=Cat1.ExisteTermino( Dato.getTermino());
+                 if(e==false){ 
+                     Cat1.InsertarFinal(Dato);
+                     b=false;
+                 }
+                 System.out.println("Alumno matriculado con exito");
+                    pausa();
+                    break;
+                    case "3":
+                        System.out.println("-----Secciones disponibles------");
+            System.out.println("1.1200");
+            System.out.println("2.1300");
+            System.out.print("INGRESE LA OPCION [1 - 2]: ");
+            System.out.println("s. Salir");
+            opcion = teclado1.next();
+            opcion = opcion.toLowerCase();
+                    Dato=PideDatos(2);
+                 e=Cat2.ExisteTermino( Dato.getTermino());
+                 if(e==false){ 
+                     Cat2.InsertarFinal(Dato);
+                     b=false;
+                 }
+                 System.out.println("Alumno matriculado con exito");
+                    pausa();
+                    break;
+                 /*   case "5":
+                    Dato=PideDatosprofesor(3);
+                 e=Cat3.ExisteTermino( Dato.getTermino());
+                 if(e==false){ 
+                     Cat3.InsertarFinal(Dato);
+                     b=false;
+                 }
+                    pausa();
+                    break;
+                   */ 
+                    default:
+                   
+            }
+                             
+            
+          
+            
+        }while(b);
+         //fin subMenu en caso 1 del menu general
+                  break;     
+                       
+                       
+                       
+                 case "4":
+                     
+                     
+                     boolean b2=true;
+                     String opc;
+                     do{
+                          agregarLineas(2);
+            System.out.println("-----elija categoria------");
+            System.out.println("1.Ver todos los registros en el sistema ");
+            System.out.println("2.Ver todas las asignaturas");
+            System.out.println("3.Busqueda por subcadena");
+            System.out.println("4.Busqueda de terminos con iniciales");
+             System.out.println("s. Salir");
+             System.out.print("INGRESE LA OPCION [1 - 5]: ");
+             Scanner teclado11 = new Scanner(System.in);
+             opc = teclado11.next();
+             opc = opc.toLowerCase();
+                         switch(opc)
+                         {
+                             case "1":
+                                 String op="";
+                                 System.out.println("\nTerminos Ordenados\n");
+                                 System.out.println("1. Ascendete");
+                                 System.out.println("2. Descendente");
+                                 Scanner teclado2 = new Scanner(System.in);
+                                 op = teclado2.next();
+                                 op = op.toLowerCase();
+                                 switch(op){
+                                     case "1":
+                                          tmpLista.OrdenPorTermino(1);
+                                          tmpLista.Mostrar();
+                                         break;
+                                     case "2":
+                                         tmpLista.OrdenPorTermino(2);
+                                         tmpLista.Mostrar();
+                                         break;
+                                 
+                                 }
+
+                                 b2=false;
+                                 break;
+                            case "2":
+                              tmpLista2.vaciar();
+                                 TipoInfo tmpInfo2;
+                                 //Llenando Lista de categorias
+                                 for(int i=0; i<5;i++){
+                                       tmpInfo2=new TipoInfo();
+                                      if(i==0){
+                                          
+                                          tmpInfo2.setcategoria(c0);
+                                          tmpLista2.InsertarFinal(tmpInfo2);}
+                                      if(i==1){
+                                          
+                                          tmpInfo2.setcategoria(c1);
+                                          tmpLista2.InsertarFinal(tmpInfo2);}
+                                      if(i==2){
+                                          
+                                          tmpInfo2.setcategoria(c2);
+                                          tmpLista2.InsertarFinal(tmpInfo2);}
+                                      if(i==3){
+                                          
+                                          tmpInfo2.setcategoria(c3);
+                                          tmpLista2.InsertarFinal(tmpInfo2);}
+                                      
+                                     }
+                                 String op6="";
+                                 System.out.println("\nTerminos Ordenados\n");
+                                 System.out.println("1. Ascendete");
+                                 System.out.println("2. Descendente");
+                                 Scanner teclado100 = new Scanner(System.in);
+                                 op6 = teclado100.next();
+                                 op6 = op6.toLowerCase();
+                                 switch(op6){
+                                     case "1":
+                                          tmpLista2.OrdenPorCategoria(1);
+                                          tmpLista2.Mostrar1();
+                                         break;
+                                     case "2":
+                                         tmpLista2.OrdenPorCategoria(2);
+                                         tmpLista2.Mostrar1();
+                                         break;
+                                 
+                                 }
+                              
+                                
+                                //Ordenando lista de categorias
+                               
+                                String op2;
+                                System.out.println("Que Lista desea ver:");
+                               
+                              
+                                System.out.println("ingrese opcion");
+                                Scanner teclado3 = new Scanner(System.in);
+                                 op2 = teclado3.next();
+                                 op2 = op2.toLowerCase();
+                                 
+                                 switch(op2){
+                                 case "1":
+                                     Cat2.OrdenPorTermino(1);
+                                     Cat2.Mostrar();
+                                         break;
+                                 case "2":
+                                     Cat3.OrdenPorTermino(1);
+                                     Cat3.Mostrar();
+                                        break;
+                                 case "3":
+                                     Cat.OrdenPorTermino(1);
+                                     Cat.Mostrar();
+                                         break;
+                                 case "4":
+                                     Cat1.OrdenPorTermino(1);
+                                     Cat1.Mostrar();
+                                         break;
+                                 case "5":
+                                     Cat3.OrdenPorTermino(1);
+                                     Cat3.Mostrar();
+                                         break;
+                                 }
+                                  b2=false;                       
+                                 break;
+                                 
+                            case "3":
+                                String op7;
+                                System.out.println("Ingrese subcadena del termino:");
+                                  Scanner teclado30 = new Scanner(System.in);
+                                 op7 = teclado30.next();
+                                 op7 = op7.toLowerCase();
+                                
+                                tmpLista.mostrarPorSubCadena(op7);
+                                break;
+                                
+                            case "4":
+                                 String op8;
+                                System.out.println("Ingrese subcadena del termino:");
+                                  Scanner teclado31 = new Scanner(System.in);
+                                 op8 = teclado31.next();
+                                 op8 = op8.toLowerCase();
+                                tmpLista.mostrarConIniciales(op8);
+                                break;
+                            case "s":
+                                b2=false;
+                                 break;
+                                 
+                            default:
+                                break;
+                         
+                         
+                         }
+                     
+                     
+                     
+                     
+                     }while(b2);
+                     
+                     
+                    
+                    pausa();
+                    
+                    
+                    
+                    break;
+                    
+                    
+              case "3"://D
+                    String op3="";
+                    System.out.println("Que desea Eliminar \n1.alumno  \n2.todos los alumnos de la asignatura ");
+                    Scanner teclado22 = new Scanner(System.in);
+                    System.out.println("opcion:");
+                                 op3 = teclado22.next();
+                                 op3 = op3.toLowerCase();
+                                
+                                 
+                                 switch(op3){
+                                     case "1":
+                                         String o;
+                                           Scanner teclado12 = new Scanner(System.in);
+                                           Scanner teclado14 = new Scanner(System.in);
+                                     System.out.println("Termino:");
+                                     tmpCadena = teclado12.next();
+                                     tmpCadena=tmpCadena.toLowerCase();
+                                      System.out.println("Realmente desea Eliminar \nSi(s) \nNo(n)");
+                                    o = teclado14.next();
+                                    o = o.toLowerCase();
+                                     
+                                     switch(o){
+                                        case "s":
+                                            
+                                               Dato = Cat.EliminarPorTermino(tmpCadena);
+                                               Dato = Cat1.EliminarPorTermino(tmpCadena);
+                                               Dato = Cat2.EliminarPorTermino(tmpCadena);
+                                               Dato = Cat3.EliminarPorTermino(tmpCadena);
+                                            
+                                           
+                                                      System.out.println("Termino eliminado:" + tmpCadena);
+                                            break;
+                                    
+                                    }
+                                     
+                                              
+                                                     
+                                         break;
+                                     case "2":
+                                         String op4;
+                                     String op5;
+                                     Scanner teclado4 = new Scanner(System.in);
+                                 tmpLista2.Mostrar1();
+                                System.out.println("Que Lista desea eliminar:");
+                           
+                                System.out.println("");
+                                Scanner teclado3 = new Scanner(System.in);
+                                 op4 = teclado3.next();
+                                 op4 = op4.toLowerCase();
+                                 
+                                 switch(op4){
+                                 case "1":
+                                     
+                                     System.out.println("Realmente desea Eliminar \nSi(s) \nNo(n)");
+                                    op5 = teclado4.next();
+                                    op5 = op5.toLowerCase();
+                                    switch(op5){
+                                        case "s":
+                                            System.out.println("Categoria Elimanda");
+                                            tmpLista2.EliminarCategorias(c2);
+                                            Cat2.vaciar();
+                                            break;
+                                    
+                                    }
+                                    
+                                         break;
+                                 case "2":
+                                      System.out.println("Realmente desea Eliminar \n Si(s) \nNo(n)");
+                                    op5 = teclado4.next();
+                                    op5 = op5.toLowerCase();  
+                                    switch(op5){
+                                        case "s":
+                                            System.out.println("Categoria Elimanda");
+                                            tmpLista2.EliminarCategorias(c3);
+                                            Cat3.vaciar();
+                                            break;
+                                    
+                                    }
+                                     
+                                     
+                                        break;
+                                 case "3":
+                                      System.out.println("Realmente desea Eliminar \n Si(s) \nNo(n)");
+                                    op5 = teclado4.next();
+                                    op5 = op5.toLowerCase();  
+                                    switch(op5){
+                                        case "s":
+                                            System.out.println("Categoria Elimanda");
+                                            tmpLista2.EliminarCategorias(c0);
+                                            Cat.vaciar();
+                                            break;
+                                    
+                                    }
+                                  
+                                     
+                                         break;
+                                 case "4":
+                                      System.out.println("Realmente desea Eliminar \n Si(s) \nNo(n)");
+                                    op5 = teclado4.next();
+                                    op5 = op5.toLowerCase(); 
+                                    switch(op5){
+                                        case "s":
+                                            System.out.println("Categoria Elimanda");
+                                            tmpLista2.EliminarCategorias(c1);
+                                            Cat1.vaciar();
+                                            break;
+                                    
+                                    }
+                                    
+                                         break;
+                                 case "5":
+                                      System.out.println("Realmente desea Eliminar \n Si(s) \nNo(n)");
+                                    op5 = teclado4.next();
+                                    op5 = op5.toLowerCase(); 
+                                    switch(op5){
+                                        case "s":
+                                            System.out.println("Categoria Elimanda");
+                                            
+                                           
+                                            break;
+                                    
+                                    }
+                                   
+                                     
+                                         break;
+                                 }//Fin de Switch para eliminar asignaturas
+                                 tmpLista2.Mostrar1();
+                                         break;
+                                         
+                                     default:
+                                         
+                                         break;
+                                 
+                                 }
+                                 
+                                 
+                                 
+                   
+                    pausa();
+                    break;
+                            
+                            
+                case "6"://Estadistica de matriculados por asignatura
+                    System.out.println("Categorias         Cantidad");
+                    System.out.println("Algoritmos:          "+Cat2.CantidadNodos());
+                    System.out.println("Profesores registrados:      "+Cat3.CantidadNodos());
+                    System.out.println("Informatica General: "+Cat.CantidadNodos());
+                    System.out.println("Programacion:        "+Cat1.CantidadNodos());
+
+                    pausa();
+                    break;
+               case "s":
+                    System.exit(0);
+                    break;
+                default:
+                    break;
+            }
+                    
+                     
+                     } while (true); //-- SEGUIRA HASTA QUE OPCION SEA IGUAL A 5
+                       }
+        
+       public static TipoInfo PideDatosprofesor(int c) {
+        TipoInfo Datos = new TipoInfo();
+        Scanner teclado = new Scanner(System.in);
+        System.out.println("INTRODUZCA LOS DATOS");
+        System.out.print("-Nombre: ");
+        Datos.setTermino(teclado.nextLine());
+        System.out.print("- No Empleado: ");
+        Datos.setSignificado(teclado.nextLine());
+        System.out.print("-asignatura a impartir : ");
+        Datos.setRegistro(teclado.nextLine());
+        {
+        Datos.setcategoria(c3);
+        
+        }
+       
+        
+        return Datos;
+    }
+          
+        
+        
+   
+     
+       
+       
+    public static TipoInfo PideDatos(int c) {
+        TipoInfo Datos = new TipoInfo();
+        Scanner teclado = new Scanner(System.in);
+        System.out.println("INTRODUZCA LOS DATOS");
+        System.out.print("-Nombre: ");
+        Datos.setTermino(teclado.nextLine());
+        System.out.print("-ID: ");
+        Datos.setSignificado(teclado.nextLine());
+        System.out.print("-registro: ");
+        Datos.setRegistro(teclado.nextLine());
+        if(c==0){
+        
+        Datos.setcategoria(c0);
+        
+        }
+        if(c==1){
+        
+        Datos.setcategoria(c1);
+        
+        }
+         if(c==2){
+        
+        Datos.setcategoria(c2);
+        
+        }
+          if(c==3){
+        
+        Datos.setcategoria(c3);
+        
+        }
+        
+        
+        return Datos;
+    }
+
+    //otros métodos
+    public final static void agregarLineas(int n) {
+        for (int i = 0; i < n; i++) {
+            System.out.println();
+        }
+    }
+
+    public final static void pausa() {
+        System.out.print("Press Any Key To Continue...");
+        new java.util.Scanner(System.in).nextLine();
+    }
+
+    public static String PideCadena(String pTexto) {
+        String cadena;
+        Scanner teclado = new Scanner(System.in);
+        System.out.print(pTexto);
+        cadena = teclado.nextLine();
+        return cadena;
+    }
+
+    public static int PideEntero(String pTexto) {
+        int numero;
+        Scanner teclado = new Scanner(System.in);
+        System.out.print(pTexto);
+        numero = teclado.nextInt();
+        
+        return numero;
+    }
+
+   
+     
+    public static void cargar (TadListaSimple T,String c){
+        TipoInfo temp;
+        switch(c){
+            case "Algoritmos":
+                for(int i=0;i<5;i++){
+                    temp = new TipoInfo();
+                    switch(i){
+                        case 0:
+                            temp.setTermino(Marcoss);
+                        temp.setSignificado(MarcosT);
+                        temp.setcategoria(c2);
+                       
+                            break;
+                         case 1:temp.setTermino(ArchivoT);
+                        temp.setSignificado(ArchivoS);
+                        temp.setcategoria(c2);
+                       
+                            break;
+                             case 2:temp.setTermino(ByteT);
+                        temp.setSignificado(ByteS);
+                        temp.setcategoria(c2);
+                       
+                            break;
+                             case 3:temp.setTermino(CarpetaT);
+                        temp.setSignificado(CarpetaS);
+                        temp.setcategoria(c2);
+                      
+                            break;
+                             case 4:temp.setTermino(BinarioT);
+                        temp.setSignificado(BinarioS);
+                        temp.setcategoria(c2);
+                       
+                            break;
+                    
+                    }
+                    
+                 T.InsertarFinal(temp);
+                
+                }
+                break;
+                
+            case "Bases de Datos":
+                for(int i=0;i<3;i++){
+                    temp = new TipoInfo();
+                    if(i==0){
+                        temp.setTermino(BugT);
+                        temp.setSignificado(BugS);
+                        temp.setcategoria(c3);
+                       
+                    }
+                    if(i==1){
+                        temp.setTermino(CDPROMT);
+                        temp.setSignificado(CDPROMS);
+                        temp.setcategoria(c3);
+                        
+                    }
+                    if(i==2){
+                        temp.setTermino(AlgoritmodeCifradoT);
+                        temp.setSignificado(AlgoritmodeCifradoS);
+                        temp.setcategoria(c3);
+                       
+                    }
+                   
+                    
+                 T.InsertarFinal(temp);
+                
+                }
+                break;
+           
+            case "Redes Informaticas":
+                for(int i=0;i<3;i++){
+                    temp = new TipoInfo();
+                    if(i==0){
+                        temp.setTermino(BandaAnchaS);
+                        temp.setSignificado(BandaAncha);
+                      
+                    }
+                    if(i==1){
+                        temp.setTermino(CachéT);
+                        temp.setSignificado(Caché);
+                        
+                        
+                    }
+                    if(i==2){
+                        temp.setTermino(AntivirusT);
+                        temp.setSignificado(Antivirus);
+                     
+                       
+                    }
+                   
+                    
+                 T.InsertarFinal(temp);
+                
+                }
+                break;
+            case "Informatica General":
+                for(int i=0;i<3;i++){
+                    temp = new TipoInfo();
+                    if(i==0){
+                        temp.setTermino(Appletst);
+                        temp.setSignificado(Applets);
+                        temp.setcategoria(c0);
+                       
+                    }
+                    if(i==1){
+                        temp.setTermino(CDRT);
+                        temp.setSignificado(CDRS);
+                        temp.setcategoria(c0);
+                        
+                    }
+                    if(i==2){
+                        temp.setTermino(BIOST);
+                        temp.setSignificado(BIOSS);
+                        temp.setcategoria(c0);
+                       
+                    }
+                   
+                    
+                 T.InsertarFinal(temp);
+                
+                }
+                break;
+        
+                case "Programacion":
+                for(int i=0;i<3;i++){
+                    temp = new TipoInfo();
+                    if(i==0){
+                        temp.setTermino(BITT);
+                        temp.setSignificado(BITS);
+                        temp.setcategoria(c1);
+                       
+                    }
+                    if(i==1){
+                        temp.setTermino(ASCIIT);
+                        temp.setSignificado(ASCIIS);
+                        temp.setcategoria(c1);
+                        
+                    }
+                    if(i==2){
+                        temp.setTermino(CDWT);
+                        temp.setSignificado(CDWS);
+                        temp.setcategoria(c1);
+                       
+                    }
+                   
+                    
+                 T.InsertarFinal(temp);
+                
+                }
+                break;
+        
+        
+        }
+    
+    
+    }
