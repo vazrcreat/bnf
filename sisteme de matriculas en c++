@@ -142,13 +142,11 @@ class sistema
                       }
                       
                       
-             
-			 
-                
+
 				  }  
       };
  
-int main()
+class main()
 {
     sistema matricular;
  
