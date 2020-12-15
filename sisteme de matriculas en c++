@@ -14,7 +14,9 @@ class sistema
                   char registro_profesor[10];
                   char sexo[10];
                   char clase[10];
- 
+ 		  int nombreProfesor;
+		  int codigoProfesor;
+		  
              void menu(){
                   int seleccion=0, repetir=1;
  
@@ -124,9 +126,11 @@ class sistema
                   int respuesta=0;
  
                   system("cls");
-                  cout<<"      GENERO     "<<endl;
-                  cout<<"1.nombre" << endl;
-                  cout<<"2.numero_empleado"<<endl;
+                  cout<<"      Profesor     "<<endl;
+                  cout<<"1.Ingrese el nombre" << endl;
+		  cin>>nombreProfesor;
+                  cout<<"2. Ingrese el numero del empleado"<<endl;
+		  cin>>codigoProfesor;
                   cout<<"3. VOLVER AL MENU PRINCIPAL "<<endl;
                   cout<<"4. SALIR "<<endl;
                   cout<<"Ingrese la opcion-> ";
@@ -134,8 +138,7 @@ class sistema
                   cout<<endl;
  
                   switch(respuesta){
-                      case 1:cout<<"1"<<endl; getch(); break;
-                      case 2:cout<<"2"<<endl;getch(); break;
+                      
                       case 3:menu(); break;
                       case 4:system ("pause"); break;
                       default: cout <<"Error. Dato Invalido!! "<<endl; break;
