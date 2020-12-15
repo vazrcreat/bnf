@@ -263,16 +263,6 @@ public class OrdenListaS {
                                 b2 = false;
                                 break;
 
-                            case "3":
-                                String op7;
-                                System.out.println("Ingrese subcadena del termino:");
-                                Scanner teclado30 = new Scanner(System.in);
-                                op7 = teclado30.next();
-                                op7 = op7.toLowerCase();
-
-                                tmpLista.mostrarPorSubCadena(op7);
-                                break;
-
                             case "4":
                                 String op8;
                                 System.out.println("Ingrese subcadena del termino:");
