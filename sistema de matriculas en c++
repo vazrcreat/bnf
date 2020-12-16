@@ -42,7 +42,7 @@ class sistema{
                   }
  
              void matricula(){
-                  int respuesta=0;
+                  int respuesta=0ñ
                 
                   system("cls");
                   cout<<"     AGREGAR MATRICULA    "<<endl;
@@ -146,13 +146,14 @@ class sistema{
                   cin>>respuesta;
                   cout<<endl;
  
-                  switch(respuesta){
+                  switch(respuesta)
+		  {
                       case 1:cout<<"1"<<endl; getch(); break;
                       case 2:cout<<"2"<<endl;getch(); break;
                       case 3:menu(); break;
                       case 4:system ("pause"); break;
                       default: cout <<"Error. Dato Invalido!! "<<endl; break;
-					}
+			}
 				}
     };
  
