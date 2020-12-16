@@ -120,7 +120,7 @@ class sistema
                       }
                   }
  
-                  void registro_profesor(){
+                  void reg_profesor(){
                   int respuesta=0;
  
                   system("cls");
