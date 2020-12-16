@@ -1,0 +1,241 @@
+#include <iostream>
+#include <Windows.h>
+#include <stdio.h>
+#include <stdlib.h>
+using namespace std;
+ 
+class ASIGNACION
+{
+    private:
+        int Equipos;
+ 
+    protected:
+ 
+ 
+    public:
+        ASIGNACION(int);
+        void disponible();
+        void registrar();
+        int desocupado();
+ 
+};
+ 
+void Color(int Background, int Text);
+enum Colors {
+ BLACK = 0,
+ BLUE = 1,
+ GREEN = 2,
+ CYAN = 3,
+ RED = 4,
+ MAGENTA = 5,
+ BROWN = 6,
+ LGREY = 7,
+ DGREY = 8,
+ LBLUE = 9,
+ LGREEN = 10,
+ LCYAN = 11,
+ LRED = 12,
+ LMAGENTA = 13,
+ YELLOW = 14,
+ WHITE = 15
+};
+void Color(int Background, int Text){
+ 
+ HANDLE Console = GetStdHandle(STD_OUTPUT_HANDLE);
+ int    New_Color= Text + (Background * 16);
+ 
+ SetConsoleTextAttribute(Console, New_Color);
+}
+ 
+void ASIGNACION::disponible()
+{
+        if(Equipos==1)
+    {
+       Color(BLACK,RED); cout<<"Ocupado    ";
+       Color(BLACK,WHITE);cout<<"";
+    }else
+         {
+          Color(BLACK,GREEN);cout<<"Libre     ";
+          Color(BLACK,WHITE);cout<<"";
+ 
+         }
+}
+ 
+ASIGNACION::ASIGNACION(int Eq)
+{
+    this->Equipos=Eq;
+}
+ 
+void ASIGNACION::registrar()
+{
+    this->Equipos=1;
+}
+ 
+int ASIGNACION::desocupado()
+{
+     return Equipos;
+}
+ 
+void Registrar_Alumno();
+ 
+ASIGNACION Equip[1][2] = {{0,0}};
+char Alumnos[2];
+int Asistio[2];
+int Maestro[1];
+int Equipo[2][2];
+int buscado, empleado, seccion;
+int asignado=0;
+int c=0;
+int lleno=0;
+int marcado =0;
+int libres;
+string area, clase, nombre;
+ 
+void Registrar_Alumno()
+{   int i ;
+     cout<<"*****Registro de Alumno********"<<endl;
+     cout<<"Nombre Alumno"<<endl;
+     cin>>nombre;
+     cout<<"Ingrese el numero de cuenta del alumno: "<<endl;
+                    for(i=0;i<1;i++)
+               {
+                    cin>>Alumnos[i];
+                }
+     cout<<"Ingrese clase a matricular: "<<endl;
+     cin>>clase;
+     
+     
+     cout<<"El alumno con cuenta numero:"<<endl;
+                       for(int j=0;j<1;j++)
+                   {
+                       cout<<Alumnos[j]<<endl;
+ 
+                   }
+	cout<<"ha sido registrado con exito!"<<endl<<endl;
+}
+
+void Registrar_Maestro()
+{   int i;
+     cout<<"*****Registro de Maestro********"<<endl;
+     cout<<"Nombre Maestro"<<endl;
+     cin>>nombre;
+     cout<<"Numero de Empleado"<<endl;
+     cin>>empleado;
+     cout<<"Ingrese el area"<<endl;
+     cin>>area;
+     cout<<"Ingrese la clase a asignar "<<endl;
+     cin>>clase;
+     cout<<"El siguiente maestro ha sido registrado: "<<nombre<<endl;
+}
+ 
+int main()
+{
+ 
+   int op;
+    do
+    {
+    cout<<"**    Menu principal       **"<<endl;
+    cout<<"** 1- Registrar alumno     **"<<endl;
+    cout<<"** 2- Verificar Matricula  **"<<endl;
+    cout<<"** 3- Mostrar Secciones    **"<<endl;
+    cout<<"** 4- Registrar Maestro    **"<<endl;
+    cout<<"** 5- Salir                **"<<endl;
+    cout<<" Que desea hacer? ";
+ 
+    cin>>op;
+ 
+    switch(op)
+    {
+        case 1:{Registrar_Alumno();
+                break;}
+        case 2:{cout<<"Verificar Matricula"<<endl ;
+                    cout<<"Ingrese el numero de cuenta del alumno"<<endl;
+                    do{
+                    cin>>buscado;
+                    for(c=1;c<3;c++)
+                    {
+ 
+                        if(buscado==Alumnos[c]) 
+                        {
+                            if(Asistio[c]!=1)
+                            {
+                        if(asignado==0)
+                        {Equipo[c][0] = 0; Equipo[c][1] = 0; break;}
+                        if(asignado==1)
+                        {Equipo[c][0] = 0; Equipo[c][1] = 1; break;}
+                      
+ 
+ 
+                              }
+                              Asistio[c]=1;
+                              Equip[Equipo[c][0]][Equipo[c][1]].registrar();
+						     asignado++;
+                            }
+                       
+                        
+                        }
+ 
+ 						 
+ 
+                    if(lleno==1)
+                    {
+                        cout<<"Seccion llena"<<endl;
+                        cout<<"Presione '0' Para salir al menu"<<endl;
+                    }
+                    c=0;
+                    if(marcado==0)
+                    {
+                      cout<<"Alumno registrado"<<endl;
+                      cout<<"Asignado a:"<< clase <<endl;
+                      cout<<"Presione '0' Para volver al menu"<<endl;
+                    }
+                    marcado=0;
+                    }while(buscado!=0);
+ 
+ 
+ 
+                break;}
+        case 3:{cout<<"Secciones"<<endl;
+                   cout<<"Aulas" << clase << endl << endl;
+                   for(int k=0;k<3;k++)
+                   {cout << endl;
+                   for(int l=0;l<5;l++)
+                   {
+ 
+                      cout << "Edif " << (k+1) << " Aula " << (l+1) ;
+ 
+ 
+                      cout << "\t \t";
+                  }
+                  cout << endl;
+                  for(int h=0;h<5;h++)
+                  {
+                      Equip[k][h].disponible(); cout << "\t\t";
+ 
+                  }
+ 
+                 }
+                 cout << endl << endl;
+                 for(int x=0;x<3;x++)
+                 {
+                  for(int y=0;y<5;y++)
+                  {
+                      if(Equip[x][y].desocupado()==0)
+                      {
+                          libres++;
+                      }
+                  }
+                 }
+                 cout<<"Secciones libres = " << libres<< endl << endl << endl;
+                 libres=0;
+                break;}
+        case 4: Registrar_Maestro();
+                break;
+    	case 5: cout<<"Programa finalizado"<<endl;
+				system("pause");
+                break;
+        default:cout<<"Dato incorrecto, intentelo de nuevo"<<endl;
+    }
+    }while(op!=4);
+    return 0;
+}
