@@ -1,5 +1,7 @@
 *********** IS-410 Programacion orientada a objetos ***********
+
       ************* Tercer periodo 2020 *******************
+      
            ********* Proyecto Final **********
 
                      Elaborado por:
