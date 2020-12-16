@@ -1,66 +1,11 @@
-# proyecto-poo
-GitHub Desktop tutorial repository
+*********** IS-410 Programacion orientada a objetos ***********
+      ************* Tercer periodo 2020 *******************
+           ********* Proyecto Final **********
 
-#include <iostream>
-#include <cstdlib>
-#include <stdio.h>
-#include <conio.h>
- 
-using namespace std;
- 
-class matriculas
-{
-      public:
-             	  char nombre[50];
-                  char apellido[50];
-                  int cuenta;
- 
-             void menu(){
-                  int seleccion=0, repetir=1;
- 
-                  while(repetir==1)
-                  {
-                  system("cls");
-                  cout<<" \n\n\n*************SISTEMA DE MATRICULA----- UNAH-----\n\n\n     "<<endl;
-                  cout<<"1. MATRICULAR  " << endl;
-                  cout<<"2.AGREGAR PROFESOR "<<endl;
-                  cout<<"3.VER ALUMNOS MATRICULADOS"<<endl;
-
-                  cout<<"5. SALIR "<<endl;
-                  cout<<"Ingrese la opcion-> ";
-                  cin>>seleccion;
-                  cout<<endl;
- 
-                  switch(seleccion){
-                      case 1:matricula(); getch();break;
-                      case 2:agregar_profesor(); getch();break;
-                      case 3:ver_alumnos_matriculados(); getch;break;
-                      
-                 
-                      
-                      case 5:repetir=0; break;
-                      default: cout <<"Error. Dato Invalido!! "<<endl; getch();break;
-                      }
-                  }
-                  }
-                  
-                  
-                  
-                  
-                  int main()
-{
-    sistema matricular;
- 
-    cout << "Sistema matricula" << endl;
-    cout<<endl;
- 
- 
-    matricular.menu();
- 
- 
- 
- 
-    system ("pause");
-    return 0;
-}
-  }         
+                     Elaborado por:
+         20141003610 Cristian Enrique Valdes Campos
+         20121016579 Vilars Antonio Zapata Rivera
+         20131008026 Julio Cesar Estrada
+         20121004815 Brayan Alexis Burgos Velasquez
+         20151030664 Rony Wilberto Castejon Amador
+         20161004295 Alberto Josue Romero Matute
